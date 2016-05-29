@@ -17,7 +17,7 @@ class VersionTest: XCTestCase {
         version = Version(stringLiteral: "A:0.5")
     }
 
-    //MARK: - Tests cases
+    //MARK: - Test cases
     
     func testInitWithStringLiteralTypeValue() {
         XCTAssertEqual(version.name, "A")
