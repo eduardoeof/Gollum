@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Version {
+public struct Version {
     let name: String
     let probability: Float
 }
@@ -17,25 +17,25 @@ struct Version {
 
 extension Version: Equatable {}
 
-func ==(lhs: Version, rhs: Version) -> Bool {
+public func ==(lhs: Version, rhs: Version) -> Bool {
     return lhs.name == rhs.name && lhs.probability == rhs.probability
 }
 
 // MARK: - Extension StringLiteralConvertible
 
 extension Version: StringLiteralConvertible {
-    typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
-    typealias UnicodeScalarLiteralType = StringLiteralType
+    public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
+    public typealias UnicodeScalarLiteralType = StringLiteralType
     
-    init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
+    public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
         self.init(value: value)!
     }
     
-    init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
+    public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
         self.init(value: value)!
     }
     
-    init(stringLiteral value: StringLiteralType) {
+    public init(stringLiteral value: StringLiteralType) {
         self.init(value: value)!
     }
     
