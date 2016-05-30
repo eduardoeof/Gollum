@@ -27,7 +27,7 @@ public class Gollum {
         let name = extractTestName(versionType)
         
         if selectedVersions[name] == nil {
-            raffle(testName: name)
+            raffleVersion(testName: name)
         }
         
         return selectedVersions[name] == versionType.rawValue
@@ -48,7 +48,7 @@ public class Gollum {
         }
     }
     
-    private func raffle(testName name: String) {
+    private func raffleVersion(testName name: String) {
         guard let versions = tests[name] else {
             // Throws an error: Test wasn't registered
             return
