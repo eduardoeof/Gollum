@@ -23,17 +23,69 @@ class GollumTests: XCTestCase {
         XCTAssert(Gollum.instance === Gollum.instance)
     }
     
-//    func testRegisterVersion() {
-//        gollum.registerVersion(GollumABTestMock.A)
-//        gollum.registerVersion(GollumABTestMock.B)
-//        
-//        
-//    }
+    func testIsVersionSelected() {
+        gollum.registerVersion(GollumABTest.A)
+        gollum.registerVersion(GollumABTest.B)
+        gollum.registerVersion(GollumABTest.C)
+        
+        XCTAssert(gollum.isVersionSelected(GollumABTest.A) ||
+            gollum.isVersionSelected(GollumABTest.B) ||
+            gollum.isVersionSelected(GollumABTest.C))
+    }
+    
+    func testIsVersionSelectedAlwaysA() {
+        gollum.registerVersion(GollumABTestAlwaysAVersion.A)
+        gollum.registerVersion(GollumABTestAlwaysAVersion.B)
+        gollum.registerVersion(GollumABTestAlwaysAVersion.C)
+        
+        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysAVersion.A))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.B))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.C))
+    }
+    
+    func testIsVersionSelectedAlwaysB() {
+        gollum.registerVersion(GollumABTestAlwaysBVersion.A)
+        gollum.registerVersion(GollumABTestAlwaysBVersion.B)
+        gollum.registerVersion(GollumABTestAlwaysBVersion.C)
+        
+        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysBVersion.B))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.A))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.C))
+    }
+    
+    func testIsVersionSelectedAlwaysC() {
+        gollum.registerVersion(GollumABTestAlwaysCVersion.A)
+        gollum.registerVersion(GollumABTestAlwaysCVersion.B)
+        gollum.registerVersion(GollumABTestAlwaysCVersion.C)
+        
+        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysCVersion.C))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
+    }
 }
 
 // MARK: - Test enum
 
-private enum GollumABTestMock: Version {
-    case A = "A:0.5"
-    case B = "B:0.5"
+private enum GollumABTest: Version {
+    case A = "A:0.3"
+    case B = "B:0.3"
+    case C = "C:0.4"
+}
+
+private enum GollumABTestAlwaysAVersion: Version {
+    case A = "A:1.0"
+    case B = "B:0.0"
+    case C = "C:0.0"
+}
+
+private enum GollumABTestAlwaysBVersion: Version {
+    case A = "A:0.0"
+    case B = "B:1.0"
+    case C = "C:0.0"
+}
+
+private enum GollumABTestAlwaysCVersion: Version {
+    case A = "A:0.0"
+    case B = "B:0.0"
+    case C = "C:1.0"
 }
