@@ -50,7 +50,7 @@ public class Gollum {
     
     private func raffle(testName name: String) {
         guard let versions = tests[name] else {
-            // Throws an error
+            // Throws an error: Test wasn't registered
             return
         }
         
