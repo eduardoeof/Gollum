@@ -18,6 +18,8 @@
 		335A5BB01CFBB921002C528F /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BAF1CFBB921002C528F /* Gollum.swift */; };
 		335A5BB11CFBB921002C528F /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BAF1CFBB921002C528F /* Gollum.swift */; };
 		335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB21CFBB92C002C528F /* GollumTests.swift */; };
+		335A5BB61CFC5D05002C528F /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB51CFC5D05002C528F /* GollumError.swift */; };
+		335A5BB71CFC5D05002C528F /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB51CFC5D05002C528F /* GollumError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		335A5BA91CFA577D002C528F /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionTest.swift; path = ../../../tests/VersionTest.swift; sourceTree = "<group>"; };
 		335A5BAF1CFBB921002C528F /* Gollum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gollum.swift; path = ../../../src/Gollum.swift; sourceTree = "<group>"; };
 		335A5BB21CFBB92C002C528F /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumTests.swift; path = ../../../tests/GollumTests.swift; sourceTree = "<group>"; };
+		335A5BB51CFC5D05002C528F /* GollumError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,7 @@
 				335A5B8E1CFA4C82002C528F /* Info.plist */,
 				335A5BAF1CFBB921002C528F /* Gollum.swift */,
 				335A5BA71CFA576E002C528F /* Version.swift */,
+				335A5BB51CFC5D05002C528F /* GollumError.swift */,
 			);
 			path = Gollum;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 				335A5B851CFA4C82002C528F /* ViewController.swift in Sources */,
 				335A5BA81CFA576E002C528F /* Version.swift in Sources */,
 				335A5B831CFA4C82002C528F /* AppDelegate.swift in Sources */,
+				335A5BB61CFC5D05002C528F /* GollumError.swift in Sources */,
 				335A5BB01CFBB921002C528F /* Gollum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +227,7 @@
 				335A5BB11CFBB921002C528F /* Gollum.swift in Sources */,
 				335A5BAA1CFA577D002C528F /* VersionTest.swift in Sources */,
 				335A5BAE1CFB3779002C528F /* Version.swift in Sources */,
+				335A5BB71CFC5D05002C528F /* GollumError.swift in Sources */,
 				335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
