@@ -9,6 +9,6 @@
 import Foundation
 
 enum GollumError: ErrorType {
-    case ProbabilitySumIncorrect
-    case TestNotFound
+    case ProbabilitySumIncorrect(String)
+    case TestNotFound(String)
 }

@@ -19,15 +19,14 @@ public class Gollum {
     
     public func registerVersion<T: RawRepresentable where T.RawValue == Version>(versionType: T) {
         let testName = extractTestName(versionType)
-        
         insertVersion(version: versionType.rawValue, testName: testName)
     }
     
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(versionType: T) -> Bool {
+    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(versionType: T) throws -> Bool {
         let name = extractTestName(versionType)
         
         if selectedVersions[name] == nil {
-            raffleVersion(testName: name)
+            try raffleVersion(testName: name)
         }
         
         return selectedVersions[name] == versionType.rawValue
@@ -37,7 +36,7 @@ public class Gollum {
     
     private func extractTestName<T: RawRepresentable where T.RawValue == Version>(versionType: T) -> String {
         let mirror = Mirror(reflecting: versionType)
-        return "\(mirror.subjectType)"
+        return mirror.subjectName
     }
     
     private func insertVersion(version version: Version, testName name: String) {
@@ -48,15 +47,13 @@ public class Gollum {
         }
     }
     
-    private func raffleVersion(testName name: String) {
+    private func raffleVersion(testName name: String) throws {
         guard let versions = tests[name] else {
-            // Throws an error: Test wasn't registered
-            return
+            throw GollumError.TestNotFound("Test \(name) wasn't registered.")
         }
         
-        if !isTestProbabilitySumValid(versions) {
-            assertionFailure("Test probability sum error: sum of \(name)'s probability isn't 1.0")
-            return
+        guard isTestProbabilitySumValid(versions) else {
+            throw GollumError.ProbabilitySumIncorrect("Sum of \(name)'s probability isn't 1.0")
         }
 
         var selectedNumber = generateAleatoryNumber()

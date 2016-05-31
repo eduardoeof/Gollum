@@ -28,9 +28,37 @@ class GollumTests: XCTestCase {
         gollum.registerVersion(GollumABTest.B)
         gollum.registerVersion(GollumABTest.C)
         
-        XCTAssert(gollum.isVersionSelected(GollumABTest.A) ||
-            gollum.isVersionSelected(GollumABTest.B) ||
-            gollum.isVersionSelected(GollumABTest.C))
+        do {
+            let isA = try gollum.isVersionSelected(GollumABTest.A)
+            let isB = try gollum.isVersionSelected(GollumABTest.B)
+            let isC = try gollum.isVersionSelected(GollumABTest.C)
+            XCTAssert(isA || isB || isC)
+        } catch {
+            XCTFail()
+        }
+    }
+
+    func testIsVersionSelectedTestNotFound() {
+        do {
+            try gollum.isVersionSelected(GollumABTest.A)
+        } catch GollumError.TestNotFound(let message) {
+            XCTAssertEqual(message, "Test GollumABTest wasn't registered.")
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testIsVersionSelectedTestProbabilitySumIncorrect() {
+        gollum.registerVersion(GollumABTestProbabilitySumIncorrect.A)
+        gollum.registerVersion(GollumABTestProbabilitySumIncorrect.B)
+        
+        do {
+            try gollum.isVersionSelected(GollumABTestProbabilitySumIncorrect.A)
+        } catch GollumError.ProbabilitySumIncorrect(let message) {
+            XCTAssertEqual(message, "Sum of GollumABTestProbabilitySumIncorrect's probability isn't 1.0")
+        } catch {
+            XCTFail()
+        }
     }
     
     func testIsVersionSelectedAlwaysA() {
@@ -38,29 +66,29 @@ class GollumTests: XCTestCase {
         gollum.registerVersion(GollumABTestAlwaysAVersion.B)
         gollum.registerVersion(GollumABTestAlwaysAVersion.C)
         
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysAVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.B))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.C))
+        XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.A))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.B))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.C))
     }
-    
+
     func testIsVersionSelectedAlwaysB() {
         gollum.registerVersion(GollumABTestAlwaysBVersion.A)
         gollum.registerVersion(GollumABTestAlwaysBVersion.B)
         gollum.registerVersion(GollumABTestAlwaysBVersion.C)
-        
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysBVersion.B))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.C))
+
+        XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.B))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.A))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.C))
     }
-    
+
     func testIsVersionSelectedAlwaysC() {
         gollum.registerVersion(GollumABTestAlwaysCVersion.A)
         gollum.registerVersion(GollumABTestAlwaysCVersion.B)
         gollum.registerVersion(GollumABTestAlwaysCVersion.C)
         
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysCVersion.C))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
+        XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.C))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
+        XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
     }
 }
 
@@ -88,4 +116,9 @@ private enum GollumABTestAlwaysCVersion: Version {
     case A = "A:0.0"
     case B = "B:0.0"
     case C = "C:1.0"
+}
+
+private enum GollumABTestProbabilitySumIncorrect: Version {
+    case A = "A:0.3"
+    case B = "B:0.3"
 }
