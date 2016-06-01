@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        try! Gollum.instance.registerVersions([MyAdorableABTest.A, MyAdorableABTest.B])
+        
         return true
     }
 }
