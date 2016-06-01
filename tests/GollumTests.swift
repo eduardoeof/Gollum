@@ -98,6 +98,10 @@ class GollumTests: XCTestCase {
         XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
         XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
     }
+    
+    func testIsVersionSelectedWithNoTestRegistered() {
+        XCTAssertFalse(gollum.isVersionSelected(GollumABTest.A))
+    }
 }
 
 // MARK: - Test enum

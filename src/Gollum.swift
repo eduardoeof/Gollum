@@ -31,9 +31,9 @@ public class Gollum {
         try raffleVersion(testName: testName)
     }
     
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(versionType: T) -> Bool {
-        let name = extractTestName(versionType)
-        return selectedVersions[name] == versionType.rawValue
+    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) -> Bool {
+        let name = extractTestName(version)
+        return selectedVersions[name] == version.rawValue
     }
     
     // MARK: - Private
