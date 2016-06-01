@@ -12,6 +12,7 @@ struct VersionDAO: VersionDAOProtocol {
     func saveSelectedVersion(version: Version, testName name: String) {
         let adapter = VersionAdapter(version: version)
         NSUserDefaults.standardUserDefaults().setObject(adapter, forKey: name)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
 }
 
