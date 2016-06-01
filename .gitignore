@@ -23,6 +23,9 @@ xcuserdata
 *.xcuserstate
 *.xcscmblueprint
 
+## OS X
+.DS_Store
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
