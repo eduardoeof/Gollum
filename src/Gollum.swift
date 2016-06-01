@@ -17,18 +17,22 @@ public class Gollum {
     
     // MARK: - Public
     
-    public func registerVersion<T: RawRepresentable where T.RawValue == Version>(versionType: T) {
-        let testName = extractTestName(versionType)
-        insertVersion(version: versionType.rawValue, testName: testName)
-    }
-    
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(versionType: T) throws -> Bool {
-        let name = extractTestName(versionType)
-        
-        if selectedVersions[name] == nil {
-            try raffleVersion(testName: name)
+    public func registerVersions<T: RawRepresentable where T.RawValue == Version>(versions: [T]) throws {
+        guard let firstVersion = versions.first else {
+            throw GollumError.EmptyVersionArrayPassed("A empty version array was passed to registered.")
         }
         
+        let testName = extractTestName(firstVersion)
+        
+        for version in versions {
+            registerVersion(version: version.rawValue, testName: testName)
+        }
+
+        try raffleVersion(testName: testName)
+    }
+    
+    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(versionType: T) -> Bool {
+        let name = extractTestName(versionType)
         return selectedVersions[name] == versionType.rawValue
     }
     
@@ -39,7 +43,7 @@ public class Gollum {
         return mirror.subjectName
     }
     
-    private func insertVersion(version version: Version, testName name: String) {
+    private func registerVersion(version version: Version, testName name: String) {
         if tests[name] != nil {
             tests[name]?.append(version)
         } else {
@@ -48,11 +52,7 @@ public class Gollum {
     }
     
     private func raffleVersion(testName name: String) throws {
-        guard let versions = tests[name] else {
-            throw GollumError.TestNotFound("Test \(name) wasn't registered.")
-        }
-        
-        guard isTestProbabilitySumValid(versions) else {
+        guard let versions = tests[name] where isTestProbabilitySumValid(versions) else {
             throw GollumError.ProbabilitySumIncorrect("Sum of \(name)'s probability isn't 1.0")
         }
 
