@@ -28,32 +28,30 @@ extension Version: StringLiteralConvertible {
     public typealias UnicodeScalarLiteralType = StringLiteralType
     
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
-        self.init(value: value)!
+        try! self.init(value: value)!
     }
     
     public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
-        self.init(value: value)!
+        try! self.init(value: value)!
     }
     
     public init(stringLiteral value: StringLiteralType) {
-        self.init(value: value)!
+        try! self.init(value: value)!
     }
     
-    // MARK: - Private
+    // MARK: - Internal
     
-    private init?(value: String) {
+    init?(value: String) throws {
         let fields = Version.extractFieldsFrom(value)
         
         if fields.count != 2 {
-            assertionFailure("Syntax error: ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
-            return nil
+            throw GollumError.VersionSyntaxError("ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
         }
         
         let name = fields[0]
         
         guard let probability = Float(fields[1]) else {
-            assertionFailure("Syntax error: ABTest must have a probablity (e.g. 0.5)")
-            return nil
+            throw GollumError.VersionSyntaxError("ABTest must have a probablity (e.g. 0.5)")
         }
         
         self.name = name
