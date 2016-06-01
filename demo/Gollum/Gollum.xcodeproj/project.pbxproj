@@ -18,10 +18,10 @@
 		335A5BB01CFBB921002C528F /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BAF1CFBB921002C528F /* Gollum.swift */; };
 		335A5BB11CFBB921002C528F /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BAF1CFBB921002C528F /* Gollum.swift */; };
 		335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB21CFBB92C002C528F /* GollumTests.swift */; };
-		335A5BB61CFC5D05002C528F /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB51CFC5D05002C528F /* GollumError.swift */; };
-		335A5BB71CFC5D05002C528F /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB51CFC5D05002C528F /* GollumError.swift */; };
-		33E91EFE1CFCF80D007E443C /* Mirror+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91EFD1CFCF80D007E443C /* Mirror+Helper.swift */; };
-		33E91EFF1CFCF80D007E443C /* Mirror+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91EFD1CFCF80D007E443C /* Mirror+Helper.swift */; };
+		33E91F021CFE7B11007E443C /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F001CFE7B11007E443C /* GollumError.swift */; };
+		33E91F031CFE7B11007E443C /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F011CFE7B11007E443C /* Mirror+Properties.swift */; };
+		33E91F041CFE7B30007E443C /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F001CFE7B11007E443C /* GollumError.swift */; };
+		33E91F051CFE7B33007E443C /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F011CFE7B11007E443C /* Mirror+Properties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,8 @@
 		335A5BA91CFA577D002C528F /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionTest.swift; path = ../../../tests/VersionTest.swift; sourceTree = "<group>"; };
 		335A5BAF1CFBB921002C528F /* Gollum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gollum.swift; path = ../../../src/Gollum.swift; sourceTree = "<group>"; };
 		335A5BB21CFBB92C002C528F /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumTests.swift; path = ../../../tests/GollumTests.swift; sourceTree = "<group>"; };
-		335A5BB51CFC5D05002C528F /* GollumError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumError.swift; sourceTree = "<group>"; };
-		33E91EFD1CFCF80D007E443C /* Mirror+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mirror+Helper.swift"; sourceTree = "<group>"; };
+		33E91F001CFE7B11007E443C /* GollumError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumError.swift; path = ../../../src/GollumError.swift; sourceTree = "<group>"; };
+		33E91F011CFE7B11007E443C /* Mirror+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Mirror+Properties.swift"; path = "../../../src/Mirror+Properties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +91,8 @@
 		335A5B811CFA4C82002C528F /* Gollum */ = {
 			isa = PBXGroup;
 			children = (
+				33E91F001CFE7B11007E443C /* GollumError.swift */,
+				33E91F011CFE7B11007E443C /* Mirror+Properties.swift */,
 				335A5B821CFA4C82002C528F /* AppDelegate.swift */,
 				335A5B841CFA4C82002C528F /* ViewController.swift */,
 				335A5B861CFA4C82002C528F /* Main.storyboard */,
@@ -99,8 +101,6 @@
 				335A5B8E1CFA4C82002C528F /* Info.plist */,
 				335A5BAF1CFBB921002C528F /* Gollum.swift */,
 				335A5BA71CFA576E002C528F /* Version.swift */,
-				335A5BB51CFC5D05002C528F /* GollumError.swift */,
-				33E91EFD1CFCF80D007E443C /* Mirror+Helper.swift */,
 			);
 			path = Gollum;
 			sourceTree = "<group>";
@@ -217,10 +217,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				335A5B851CFA4C82002C528F /* ViewController.swift in Sources */,
+				33E91F031CFE7B11007E443C /* Mirror+Properties.swift in Sources */,
 				335A5BA81CFA576E002C528F /* Version.swift in Sources */,
 				335A5B831CFA4C82002C528F /* AppDelegate.swift in Sources */,
-				335A5BB61CFC5D05002C528F /* GollumError.swift in Sources */,
-				33E91EFE1CFCF80D007E443C /* Mirror+Helper.swift in Sources */,
+				33E91F021CFE7B11007E443C /* GollumError.swift in Sources */,
 				335A5BB01CFBB921002C528F /* Gollum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,10 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				335A5BB11CFBB921002C528F /* Gollum.swift in Sources */,
+				33E91F051CFE7B33007E443C /* Mirror+Properties.swift in Sources */,
 				335A5BAA1CFA577D002C528F /* VersionTest.swift in Sources */,
 				335A5BAE1CFB3779002C528F /* Version.swift in Sources */,
-				335A5BB71CFC5D05002C528F /* GollumError.swift in Sources */,
-				33E91EFF1CFCF80D007E443C /* Mirror+Helper.swift in Sources */,
+				33E91F041CFE7B30007E443C /* GollumError.swift in Sources */,
 				335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
