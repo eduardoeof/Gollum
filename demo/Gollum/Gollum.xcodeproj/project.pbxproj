@@ -23,6 +23,10 @@
 		335A5BAA1CFA577D002C528F /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BA91CFA577D002C528F /* VersionTest.swift */; };
 		335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A5BB21CFBB92C002C528F /* GollumTests.swift */; };
 		33E91F071CFE7B95007E443C /* MyAdorableABTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F061CFE7B95007E443C /* MyAdorableABTest.swift */; };
+		33F8F9641CFF29C000B514FF /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332AE1801CFF0D9C002F7471 /* Version.swift */; };
+		33F8F9651CFF29F400B514FF /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332AE17F1CFF0D9C002F7471 /* GollumError.swift */; };
+		33F8F9661CFF2A0000B514FF /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332AE17E1CFF0D9C002F7471 /* Gollum.swift */; };
+		33F8F9671CFF2A0F00B514FF /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332AE1811CFF0D9C002F7471 /* Mirror+Properties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,8 +260,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F8F9661CFF2A0000B514FF /* Gollum.swift in Sources */,
+				33F8F9651CFF29F400B514FF /* GollumError.swift in Sources */,
 				332AE1881CFF0DCB002F7471 /* VersionDAOProtocol.swift in Sources */,
+				33F8F9641CFF29C000B514FF /* Version.swift in Sources */,
 				332AE18B1CFF0EDA002F7471 /* VersionDAO.swift in Sources */,
+				33F8F9671CFF2A0F00B514FF /* Mirror+Properties.swift in Sources */,
 				335A5BAA1CFA577D002C528F /* VersionTest.swift in Sources */,
 				335A5BB41CFBB92C002C528F /* GollumTests.swift in Sources */,
 			);
