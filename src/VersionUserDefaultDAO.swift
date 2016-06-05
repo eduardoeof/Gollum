@@ -68,11 +68,11 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
     
     private func convertToVersion(selectedVersion: SelectedVersion) throws -> Version {
         guard let name = selectedVersion.keys.first else {
-            throw VersionDAOError.VersionNameValueMissing("Selected version's name is missing")
+            throw VersionDAOError.VersionNameValueNotFound("Selected version's name is missing")
         }
         
         guard let probability = selectedVersion[name] else {
-            throw VersionDAOError.VersionProbabilityValueMissing("Selected version's probability is missing")
+            throw VersionDAOError.VersionProbabilityValueNotFound("Selected version's probability is missing")
         }
 
         return Version(name: name, probability: probability)

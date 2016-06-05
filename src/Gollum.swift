@@ -11,9 +11,22 @@ import Foundation
 public class Gollum {
     static public let instance = Gollum()
     
+    private let versionDAO: VersionDAOProtocol
+    
     private typealias TestName = String
     private var tests = [TestName: [Version]]()
-    private var selectedVersions = [TestName: Version]()
+    private var selectedVersions: [TestName: Version]
+    
+    // MARK: - Init
+    
+    init(versionDAO: VersionDAOProtocol) {
+        self.versionDAO = versionDAO
+        self.selectedVersions = try! versionDAO.loadSelectedVersions()
+    }
+    
+    convenience init() {
+        self.init(versionDAO: VersionUserDefaultDAO())
+    }
     
     // MARK: - Public
     
@@ -28,7 +41,15 @@ public class Gollum {
             registerVersion(version: version.rawValue, testName: testName)
         }
 
-        try raffleVersion(testName: testName)
+        if selectedVersions[testName] == nil {
+            try raffleVersion(testName: testName)
+            
+            guard let selectedVersions = selectedVersions[testName] else {
+                throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+            }
+            
+            versionDAO.saveSelectedVersion(selectedVersions, testName: testName)
+        }
     }
     
     public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) -> Bool {

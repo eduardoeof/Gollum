@@ -16,6 +16,10 @@ class GollumTests: XCTestCase {
         gollum = Gollum()
     }
     
+    override func tearDown() {
+        removeSelectedTestsFromStorage()
+    }
+    
     //MARK: - Test cases
     
     func testInstanceProperty() {
@@ -102,7 +106,26 @@ class GollumTests: XCTestCase {
     func testIsVersionSelectedWithNoTestRegistered() {
         XCTAssertFalse(gollum.isVersionSelected(GollumABTest.A))
     }
+    
+    func testLoadSelectedVersionsFromStorage() {
+        do {
+            try gollum.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+        } catch {
+            XCTFail()
+        }
+        
+        let gollumStorage = Gollum()
+        
+        let isA = gollumStorage.isVersionSelected(GollumABTest.A)
+        let isB = gollumStorage.isVersionSelected(GollumABTest.B)
+        let isC = gollumStorage.isVersionSelected(GollumABTest.C)
+        XCTAssert(isA || isB || isC)
+    }
 }
+
+// MARK: - Extension
+
+extension GollumTests: GollumUserDefaultHelper {}
 
 // MARK: - Test enum
 

@@ -11,10 +11,6 @@ import XCTest
 class VersionUserDefaultDAOTest: XCTestCase {
     var dao: VersionUserDefaultDAO!
     
-    private typealias SelectedVersion = [String: Float]
-    private typealias SelectedTests = [String: SelectedVersion]
-    private let storageName = "GollumSelectedTests"
-    
     // MARK: - XCTestCase
     
     override func setUp() {
@@ -22,7 +18,7 @@ class VersionUserDefaultDAOTest: XCTestCase {
     }
     
     override func tearDown() {
-        removeSelectedTests()
+        removeSelectedTestsFromStorage()
     }
     
     // MARK: - Tests
@@ -104,14 +100,9 @@ class VersionUserDefaultDAOTest: XCTestCase {
         XCTAssertEqual(selectedVersions?[testName]?.name, selectedVersionsLoaded?[testName]?.name)
         XCTAssertEqual(selectedVersions?[testName]?.probability, selectedVersionsLoaded?[testName]?.probability)
     }
-    
-    // MARK: - Private
-    
-    private func loadSelectedTests() -> SelectedTests? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(storageName) as? SelectedTests
-    }
-    
-    private func removeSelectedTests() {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(storageName)
-    }
 }
+
+// MARK: - Extension
+
+extension VersionUserDefaultDAOTest: GollumUserDefaultHelper {}
+

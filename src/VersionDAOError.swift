@@ -9,6 +9,6 @@
 import Foundation
 
 enum VersionDAOError: ErrorType {
-    case VersionNameValueMissing(String)
-    case VersionProbabilityValueMissing(String)
+    case VersionNameValueNotFound(String)
+    case VersionProbabilityValueNotFound(String)
 }
