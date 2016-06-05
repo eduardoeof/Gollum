@@ -11,17 +11,18 @@ import Foundation
 class VersionUserDefaultDAO: VersionDAOProtocol {
     private static let storageName = "GollumSelectedTests"
     
+    private typealias TestName = String
     private typealias SelectedVersion = [String: Float]
-    private typealias SelectedTests = [String: SelectedVersion]
-    private var selectedTests: SelectedTests
+    private typealias Tests = [TestName: SelectedVersion]
+    private var tests: Tests
     
     // MARK: Init
     
     init() {
         if let selectedTests = VersionUserDefaultDAO.loadSelectedTests() {
-            self.selectedTests = selectedTests
+            self.tests = selectedTests
         } else {
-            self.selectedTests = SelectedTests()
+            self.tests = Tests()
         }
     }
     
@@ -29,28 +30,51 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
     
     func saveSelectedVersion(version: Version, testName name: String) {
         let selectedVersion = convertToSelectedVersion(version)
-        selectedTests[name] = selectedVersion
+        tests[name] = selectedVersion
         
         saveSelectedTests()
     }
     
     func didSelectVersionForTest(name: String) -> Bool {
-        return selectedTests[name] != nil
+        return tests[name] != nil
+    }
+    
+    func loadSelectedVersions() throws -> [String: Version] {
+        var selectedVersions = [String: Version]()
+        
+        for (testName, selectedVersion) in tests {
+            let version = try convertToVersion(selectedVersion)
+            selectedVersions[testName] = version
+        }
+        
+        return selectedVersions
     }
     
     // MARK: - Private Static
     
-    private static func loadSelectedTests() -> SelectedTests? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(VersionUserDefaultDAO.storageName) as? SelectedTests
+    private static func loadSelectedTests() -> Tests? {
+        return NSUserDefaults.standardUserDefaults().objectForKey(VersionUserDefaultDAO.storageName) as? Tests
     }
     
     // MARK: - Private
     
     private func saveSelectedTests() {
-        NSUserDefaults.standardUserDefaults().setObject(selectedTests, forKey: VersionUserDefaultDAO.storageName)
+        NSUserDefaults.standardUserDefaults().setObject(tests, forKey: VersionUserDefaultDAO.storageName)
     }
     
     private func convertToSelectedVersion(version: Version) -> SelectedVersion {
         return [version.name: version.probability]
+    }
+    
+    private func convertToVersion(selectedVersion: SelectedVersion) throws -> Version {
+        guard let name = selectedVersion.keys.first else {
+            throw VersionDAOError.VersionNameValueMissing("Selected version's name is missing")
+        }
+        
+        guard let probability = selectedVersion[name] else {
+            throw VersionDAOError.VersionProbabilityValueMissing("Selected version's probability is missing")
+        }
+
+        return Version(name: name, probability: probability)
     }
 }

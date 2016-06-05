@@ -54,6 +54,30 @@ class VersionUserDefaultDAOTest: XCTestCase {
         XCTAssertFalse(dao.didSelectVersionForTest(testName))
     }
     
+    func testLoadSelectedVersions() {
+        let test1Name = "AnotherSuperTest1"
+        let versionTest1 = Version(name: "A", probability: 0.9)
+        
+        let test2Name = "AnotherSuperTest2"
+        let versionTest2 = Version(name: "X", probability: 0.1)
+        
+        dao.saveSelectedVersion(versionTest1, testName: test1Name)
+        dao.saveSelectedVersion(versionTest2, testName: test2Name)
+        
+        var selectedVersions: [String: Version]?
+        do {
+            selectedVersions = try dao.loadSelectedVersions()
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(selectedVersions?.keys.count, 2)
+        XCTAssertEqual(selectedVersions?[test1Name]?.name, versionTest1.name)
+        XCTAssertEqual(selectedVersions?[test1Name]?.probability, versionTest1.probability)
+        XCTAssertEqual(selectedVersions?[test2Name]?.name, versionTest2.name)
+        XCTAssertEqual(selectedVersions?[test2Name]?.probability, versionTest2.probability)
+    }
+    
     // MARK: - Private
     
     private func loadSelectedTests() -> SelectedTests? {
