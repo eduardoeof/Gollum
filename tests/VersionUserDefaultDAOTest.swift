@@ -22,7 +22,7 @@ class VersionUserDefaultDAOTest: XCTestCase {
     }
     
     override func tearDown() {
-        removeSelectedTest()
+        removeSelectedTests()
     }
     
     // MARK: - Tests
@@ -78,13 +78,40 @@ class VersionUserDefaultDAOTest: XCTestCase {
         XCTAssertEqual(selectedVersions?[test2Name]?.probability, versionTest2.probability)
     }
     
+    func testLoadSelectedVersionsLoadingFromUserDefault() {
+        let testName = "AnotherHiperTest1"
+        let versionTest = Version(name: "E", probability: 0.8)
+        
+        dao.saveSelectedVersion(versionTest, testName: testName)
+        
+        var selectedVersions: [String: Version]?
+        do {
+            selectedVersions = try dao.loadSelectedVersions()
+        } catch {
+            XCTFail()
+        }
+        
+        let loadedDao = VersionUserDefaultDAO()
+        
+        var selectedVersionsLoaded: [String: Version]?
+        do {
+            selectedVersionsLoaded = try loadedDao.loadSelectedVersions()
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(selectedVersions?.keys.count, selectedVersionsLoaded?.keys.count)
+        XCTAssertEqual(selectedVersions?[testName]?.name, selectedVersionsLoaded?[testName]?.name)
+        XCTAssertEqual(selectedVersions?[testName]?.probability, selectedVersionsLoaded?[testName]?.probability)
+    }
+    
     // MARK: - Private
     
     private func loadSelectedTests() -> SelectedTests? {
         return NSUserDefaults.standardUserDefaults().objectForKey(storageName) as? SelectedTests
     }
     
-    private func removeSelectedTest() {
+    private func removeSelectedTests() {
         NSUserDefaults.standardUserDefaults().removeObjectForKey(storageName)
     }
 }
