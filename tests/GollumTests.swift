@@ -40,6 +40,26 @@ class GollumTests: XCTestCase {
         XCTAssert(isA || isB || isC)
     }
     
+    func testRegisterVersionsWithVersionsAlreadySelected() {
+        do {
+            try gollum.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+        } catch {
+            XCTFail()
+        }
+        
+        let gollum2 = Gollum()
+        
+        do {
+            try gollum2.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+        } catch {
+            XCTFail()
+        }
+        
+        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.A), gollum2.isVersionSelected(GollumABTest.A))
+        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.B), gollum2.isVersionSelected(GollumABTest.B))
+        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.C), gollum2.isVersionSelected(GollumABTest.C))
+    }
+    
     func testRegisterVersionsEmptyVersionArrayPassed() {
         do {
             let versions = [GollumABTest]()
