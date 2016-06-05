@@ -25,13 +25,17 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
         }
     }
     
-    // MARK: - Internal
+    // MARK: - VersionDAOProtocol
     
     func saveSelectedVersion(version: Version, testName name: String) {
         let selectedVersion = convertToSelectedVersion(version)
         selectedTests[name] = selectedVersion
         
         saveSelectedTests()
+    }
+    
+    func didSelectVersionForTest(name: String) -> Bool {
+        return selectedTests[name] != nil
     }
     
     // MARK: - Private Static

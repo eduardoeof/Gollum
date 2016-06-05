@@ -39,6 +39,20 @@ class VersionUserDefaultDAOTest: XCTestCase {
         XCTAssertEqual(selectedTests?[testName]?.keys.first, version.name)
         XCTAssertEqual(selectedTests?[testName]?[version.name], version.probability)
     }
+
+    func testDidSelectVersionForTestReturningTrue() {
+        let testName = "AmazingTest"
+        let version = Version(name: "B", probability: 0.4)
+        
+        dao.saveSelectedVersion(version, testName: testName)
+        
+        XCTAssertTrue(dao.didSelectVersionForTest(testName))
+    }
+
+    func testDidSelectVersionForTestReturningFalse() {
+        let testName = "AmazingTest2"
+        XCTAssertFalse(dao.didSelectVersionForTest(testName))
+    }
     
     // MARK: - Private
     

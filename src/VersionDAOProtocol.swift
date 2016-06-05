@@ -10,4 +10,5 @@ import Foundation
 
 protocol VersionDAOProtocol {
     func saveSelectedVersion(version: Version, testName name: String)
+    func didSelectVersionForTest(name: String) -> Bool
 }
