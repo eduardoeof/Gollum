@@ -11,21 +11,9 @@ import Foundation
 public class Gollum {
     static public let instance = Gollum()
     
-    private let versionDAO: VersionDAOProtocol
-    
     private typealias TestName = String
     private var tests = [TestName: [Version]]()
     private var selectedVersions = [TestName: Version]()
-    
-    // MARK - Init
-    
-    init(versionDAO: VersionDAOProtocol) {
-        self.versionDAO = versionDAO
-    }
-    
-    convenience init() {
-        self.init(versionDAO: VersionDAO())
-    }
     
     // MARK: - Public
     
