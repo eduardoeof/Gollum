@@ -8,7 +8,7 @@
 
 import Foundation
 
-class VersionDAOUserDefault: VersionDAOProtocol {
+class VersionUserDefaultDAO: VersionDAOProtocol {
     private static let storageName = "GollumSelectedTests"
     
     private typealias SelectedVersion = [String: Float]
@@ -18,7 +18,7 @@ class VersionDAOUserDefault: VersionDAOProtocol {
     // MARK: Init
     
     init() {
-        if let selectedTests = VersionDAOUserDefault.loadSelectedTests() {
+        if let selectedTests = VersionUserDefaultDAO.loadSelectedTests() {
             self.selectedTests = selectedTests
         } else {
             self.selectedTests = SelectedTests()
@@ -37,13 +37,13 @@ class VersionDAOUserDefault: VersionDAOProtocol {
     // MARK: - Private Static
     
     private static func loadSelectedTests() -> SelectedTests? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(VersionDAOUserDefault.storageName) as? SelectedTests
+        return NSUserDefaults.standardUserDefaults().objectForKey(VersionUserDefaultDAO.storageName) as? SelectedTests
     }
     
     // MARK: - Private
     
     private func saveSelectedTests() {
-        NSUserDefaults.standardUserDefaults().setObject(selectedTests, forKey: VersionDAOUserDefault.storageName)
+        NSUserDefaults.standardUserDefaults().setObject(selectedTests, forKey: VersionUserDefaultDAO.storageName)
     }
     
     private func convertToSelectedVersion(version: Version) -> SelectedVersion {

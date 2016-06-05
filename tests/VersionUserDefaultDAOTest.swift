@@ -8,8 +8,8 @@
 
 import XCTest
 
-class VersionDAOUserDefaultTest: XCTestCase {
-    var dao: VersionDAOUserDefault!
+class VersionUserDefaultDAOTest: XCTestCase {
+    var dao: VersionUserDefaultDAO!
     
     private typealias SelectedVersion = [String: Float]
     private typealias SelectedTests = [String: SelectedVersion]
@@ -18,7 +18,7 @@ class VersionDAOUserDefaultTest: XCTestCase {
     // MARK: - XCTestCase
     
     override func setUp() {
-        dao = VersionDAOUserDefault()
+        dao = VersionUserDefaultDAO()
     }
     
     override func tearDown() {
