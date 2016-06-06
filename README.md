@@ -9,7 +9,7 @@ A/B testing (also known as split testing) is a good practice to test new concept
 ## Instalation (Cocoapods)
 Add to your `Podfile`:
 ```rb
-pod 'Gollum', :git => 'git@github.com:eduardoeof/Gollum.git', :tag => '0.1.0'
+pod 'Gollum'
 ```
 Then run the command below:
 ```
