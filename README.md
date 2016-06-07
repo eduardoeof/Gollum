@@ -36,7 +36,7 @@ if Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
 }
 ```
 ## Objective-C
-Because of some Swift's features, Gollum doens't work in Objective-C.
+Because of some Swift's features, Gollum doesn't work in Objective-C.
 
 ## License
 Gollum is available under the MIT license. See the LICENSE file for more info.
