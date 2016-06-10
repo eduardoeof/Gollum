@@ -141,6 +141,73 @@ class GollumTests: XCTestCase {
         let isC = gollumStorage.isVersionSelected(GollumABTest.C)
         XCTAssert(isA || isB || isC)
     }
+    
+    func testGetSelectedVersionAlwayVersionA() {
+        do {
+            try gollum.registerVersions([GollumABTestAlwaysAVersion.A,
+                GollumABTestAlwaysAVersion.B,
+                GollumABTestAlwaysAVersion.C])
+            
+            switch try gollum.getSelectedVersion(GollumABTestAlwaysAVersion) {
+            case .A:
+                XCTAssertTrue(true)
+            case .B:
+                XCTFail()
+            case .C:
+                XCTFail()
+            }
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testGetSelectedVersionAlwayVersionB() {
+        do {
+            try gollum.registerVersions([GollumABTestAlwaysBVersion.A,
+                GollumABTestAlwaysBVersion.B,
+                GollumABTestAlwaysBVersion.C])
+            
+            switch try gollum.getSelectedVersion(GollumABTestAlwaysBVersion) {
+            case .A:
+                XCTFail()
+            case .B:
+                XCTAssertTrue(true)
+            case .C:
+                XCTFail()
+            }
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testGetSelectedVersionAlwayVersionC() {
+        do {
+            try gollum.registerVersions([GollumABTestAlwaysCVersion.A,
+                GollumABTestAlwaysCVersion.B,
+                GollumABTestAlwaysCVersion.C])
+            
+            switch try gollum.getSelectedVersion(GollumABTestAlwaysCVersion) {
+            case .A:
+                XCTFail()
+            case .B:
+                XCTFail()
+            case .C:
+                XCTAssertTrue(true)
+            }
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testGetSelectedVersionErrorSelectedVersionNotFound() {
+        do {
+            try gollum.getSelectedVersion(GollumABTestAlwaysAVersion)
+        } catch GollumError.SelectedVersionNotFound(let message) {
+            XCTAssertEqual(message, "Test GollumABTestAlwaysAVersion should have a selected version.")
+        } catch {
+            XCTFail()
+        }
+    }
 }
 
 // MARK: - Extension
@@ -155,19 +222,19 @@ private enum GollumABTest: Version {
     case C = "C:0.4"
 }
 
-private enum GollumABTestAlwaysAVersion: Version {
+enum GollumABTestAlwaysAVersion: Version {
     case A = "A:1.0"
     case B = "B:0.0"
     case C = "C:0.0"
 }
 
-private enum GollumABTestAlwaysBVersion: Version {
+enum GollumABTestAlwaysBVersion: Version {
     case A = "A:0.0"
     case B = "B:1.0"
     case C = "C:0.0"
 }
 
-private enum GollumABTestAlwaysCVersion: Version {
+enum GollumABTestAlwaysCVersion: Version {
     case A = "A:0.0"
     case B = "B:0.0"
     case C = "C:1.0"
