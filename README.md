@@ -37,7 +37,6 @@ case .B:
     view.backgroundColor = UIColor.greenColor()
 }
 ```
-
 Or using `isVersionSelected`:
 
 ```swift
@@ -47,6 +46,32 @@ if try! Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
     view.backgroundColor = UIColor.greenColor()
 }
 ```
+
+## Error Handling
+To avoid unexpected scenarios during an A/B testing, it's important treat errors. Gollum can throw these errors:
+```swift
+public enum GollumError: ErrorType {
+    case VersionSyntaxError(String)
+    case ProbabilitySumIncorrect(String)
+    case EmptyVersionArrayPassed(String)
+    case SelectedVersionNotFound(String)
+}
+```
+If an A/B testing enum is created with wrong syntax, like missing version name or probability, the application will crash with error `VersionSyntaxError`:
+```swift
+enum MyABTest: Version {
+    case A = ":0.5"
+    case B = "B:0.5"
+}
+```
+Error message:
+```
+fatal error: 'try!' expression unexpectedly raised an error: Gollum.GollumError.VersionSyntaxError("ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
+```
+During an A/B test registration, the method `registerVersions` can throw `EmptyVersionArrayPassed`, `SelectedVersionNotFound` or `ProbabilitySumIncorrect` errors.
+
+Also methods `getSelectedVersion` and `isVersionSelected` can throw `SelectedVersionNotFound` error.
+
 ## Objective-C
 Because of some Swift's features, Gollum doesn't work in Objective-C.
 
