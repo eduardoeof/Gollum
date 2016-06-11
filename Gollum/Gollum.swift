@@ -14,7 +14,6 @@ public class Gollum {
     private let versionDAO: VersionDAOProtocol
     
     private typealias TestName = String
-    private var tests = [TestName: [Version]]()
     private var selectedVersions: [TestName: Version]
     
     // MARK: - Init
@@ -36,13 +35,9 @@ public class Gollum {
         }
         
         let testName = extractTestName(firstVersion)
-        
-        for version in versions {
-            registerVersion(version: version.rawValue, testName: testName)
-        }
 
         if selectedVersions[testName] == nil {
-            try raffleVersion(testName: testName)
+            try raffleVersion(versions, testName: testName)
             
             guard let selectedVersions = selectedVersions[testName] else {
                 throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
@@ -64,24 +59,18 @@ public class Gollum {
         return mirror.subjectName
     }
     
-    private func registerVersion(version version: Version, testName name: String) {
-        if tests[name] != nil {
-            tests[name]?.append(version)
-        } else {
-            tests[name] = [version]
-        }
-    }
-    
-    private func raffleVersion(testName name: String) throws {
-        guard let versions = tests[name] where isTestProbabilitySumValid(versions) else {
-            throw GollumError.ProbabilitySumIncorrect("Sum of \(name)'s probability isn't 1.0")
+    private func raffleVersion<T: RawRepresentable where T.RawValue == Version>(versions: [T], testName: String) throws {
+        let versionsRawValue = convertToArrayOfRawValue(versions)
+        
+        guard isTestProbabilitySumValid(versionsRawValue) else {
+            throw GollumError.ProbabilitySumIncorrect("Sum of \(testName)'s probability isn't 1.0")
         }
 
         var selectedNumber = generateAleatoryNumber()
-        let probabilities = versions.map { Int($0.probability * 1000) }
+        let probabilities = versionsRawValue.map { Int($0.probability * 1000) }
         for (index, probability) in probabilities.enumerate() {
             if selectedNumber <= probability {
-                selectedVersions[name] = versions[index]
+                selectedVersions[testName] = versionsRawValue[index]
                 return
             }
             
@@ -95,5 +84,14 @@ public class Gollum {
     
     private func generateAleatoryNumber() -> Int {
         return Int(arc4random_uniform(1000) + 1)
+    }
+    
+    private func convertToArrayOfRawValue<T: RawRepresentable where T.RawValue == Version>(versions: [T]) -> [T.RawValue] {
+        var rawValues: [T.RawValue] = []
+        for version in versions {
+            rawValues.append(version.rawValue)
+        }
+        
+        return rawValues
     }
 }
