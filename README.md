@@ -27,11 +27,23 @@ Register the test's cases in Gollum:
 ```swift
 try Gollum.instance.registerVersions([MyABTest.A, MyABTest.B])
 ```
-After registration, you can check which version was selected:
+After registration, you can check which version was selected using `getSelectedVersion`:
+
 ```swift
-if Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
+switch try! Gollum.instance.getSelectedVersion(MyAdorableABTest) {
+case .A:
     view.backgroundColor = UIColor.redColor()
-} else if Gollum.instance.isVersionSelected(MyAdorableABTest.B) {
+case .B:
+    view.backgroundColor = UIColor.greenColor()
+}
+```
+
+Or using `isVersionSelected`:
+
+```swift
+if try! Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
+    view.backgroundColor = UIColor.redColor()
+} else if try! Gollum.instance.isVersionSelected(MyAdorableABTest.B) {
     view.backgroundColor = UIColor.greenColor()
 }
 ```
