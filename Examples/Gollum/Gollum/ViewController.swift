@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check seleted version
+        
         do {
             switch try Gollum.instance.getSelectedVersion(MyAdorableABTest) {
             case .A:
@@ -23,6 +25,17 @@ class ViewController: UIViewController {
         } catch let error {
             print(error)
         }
+        
+        // Or
+           
+        do {
+            if try Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
+                view.backgroundColor = UIColor.redColor()
+            } else if try Gollum.instance.isVersionSelected(MyAdorableABTest.B) {
+                view.backgroundColor = UIColor.greenColor()
+            }
+        } catch let error {
+            print(error)
+        }
     }
-    
 }

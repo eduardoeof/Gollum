@@ -52,20 +52,25 @@ public class Gollum {
         }
     }
     
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) -> Bool {
-        let name = extractTestName(version)
-        return selectedVersions[name] == version.rawValue
-    }
-    
     public func getSelectedVersion<T: RawRepresentable where T.RawValue == Version>(test: T.Type) throws -> T {
         let testName = String(test)
         
         guard let rawValue = selectedVersions[testName],
             let version = test.init(rawValue: rawValue) else {
-            throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+                throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
         }
         
         return version
+    }
+    
+    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) throws-> Bool {
+        let testName = extractTestName(version)
+        
+        guard let selectedVersion = selectedVersions[testName] else {
+            throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+        }
+        
+        return selectedVersion == version.rawValue
     }
     
     // MARK: - Private

@@ -30,34 +30,29 @@ class GollumTests: XCTestCase {
     func testRegisterVersions() {
         do {
             try gollum.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+            
+            let isA = try gollum.isVersionSelected(GollumABTest.A)
+            let isB = try gollum.isVersionSelected(GollumABTest.B)
+            let isC = try gollum.isVersionSelected(GollumABTest.C)
+            XCTAssert(isA || isB || isC)
         } catch {
             XCTFail()
         }
-        
-        let isA = gollum.isVersionSelected(GollumABTest.A)
-        let isB = gollum.isVersionSelected(GollumABTest.B)
-        let isC = gollum.isVersionSelected(GollumABTest.C)
-        XCTAssert(isA || isB || isC)
     }
     
     func testRegisterVersionsWithVersionsAlreadySelected() {
         do {
             try gollum.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
-        } catch {
-            XCTFail()
-        }
-        
-        let gollum2 = Gollum()
-        
-        do {
+            
+            let gollum2 = Gollum()
             try gollum2.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+            
+            XCTAssertEqual(try gollum.isVersionSelected(GollumABTest.A), try gollum2.isVersionSelected(GollumABTest.A))
+            XCTAssertEqual(try gollum.isVersionSelected(GollumABTest.B), try gollum2.isVersionSelected(GollumABTest.B))
+            XCTAssertEqual(try gollum.isVersionSelected(GollumABTest.C), try gollum2.isVersionSelected(GollumABTest.C))
         } catch {
             XCTFail()
         }
-        
-        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.A), gollum2.isVersionSelected(GollumABTest.A))
-        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.B), gollum2.isVersionSelected(GollumABTest.B))
-        XCTAssertEqual(gollum.isVersionSelected(GollumABTest.C), gollum2.isVersionSelected(GollumABTest.C))
     }
     
     func testRegisterVersionsEmptyVersionArrayPassed() {
@@ -86,13 +81,13 @@ class GollumTests: XCTestCase {
             try gollum.registerVersions([GollumABTestAlwaysAVersion.A,
                 GollumABTestAlwaysAVersion.B,
                 GollumABTestAlwaysAVersion.C])
+            
+            XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.A))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.B))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysAVersion.C))
         } catch {
             XCTFail()
         }
-        
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysAVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.B))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysAVersion.C))
     }
 
     func testIsVersionSelectedAlwaysB() {
@@ -100,13 +95,13 @@ class GollumTests: XCTestCase {
             try gollum.registerVersions([GollumABTestAlwaysBVersion.A,
                 GollumABTestAlwaysBVersion.B,
                 GollumABTestAlwaysBVersion.C])
+            
+            XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.B))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.A))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysBVersion.C))
         } catch {
             XCTFail()
         }
-
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysBVersion.B))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysBVersion.C))
     }
 
     func testIsVersionSelectedAlwaysC() {
@@ -114,32 +109,38 @@ class GollumTests: XCTestCase {
             try gollum.registerVersions([GollumABTestAlwaysCVersion.A,
                 GollumABTestAlwaysCVersion.B,
                 GollumABTestAlwaysCVersion.C])
+            
+            XCTAssertTrue(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.C))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
+            XCTAssertFalse(try gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
         } catch {
             XCTFail()
         }
-        
-        XCTAssertTrue(gollum.isVersionSelected(GollumABTestAlwaysCVersion.C))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.A))
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTestAlwaysCVersion.B))
     }
     
-    func testIsVersionSelectedWithNoTestRegistered() {
-        XCTAssertFalse(gollum.isVersionSelected(GollumABTest.A))
+    func testIsVersionSelectedErrorSelectedVersionNotFound() {
+        do {
+            try gollum.isVersionSelected(GollumABTest.A)
+        } catch GollumError.SelectedVersionNotFound(let message) {
+            XCTAssertEqual(message, "Test GollumABTest should have a selected version.")
+        } catch {
+            XCTFail()
+        }
     }
     
     func testLoadSelectedVersionsFromStorage() {
         do {
             try gollum.registerVersions([GollumABTest.A, GollumABTest.B, GollumABTest.C])
+            
+            let gollumStorage = Gollum()
+            
+            let isA = try gollumStorage.isVersionSelected(GollumABTest.A)
+            let isB = try gollumStorage.isVersionSelected(GollumABTest.B)
+            let isC = try gollumStorage.isVersionSelected(GollumABTest.C)
+            XCTAssert(isA || isB || isC)
         } catch {
             XCTFail()
         }
-        
-        let gollumStorage = Gollum()
-        
-        let isA = gollumStorage.isVersionSelected(GollumABTest.A)
-        let isB = gollumStorage.isVersionSelected(GollumABTest.B)
-        let isC = gollumStorage.isVersionSelected(GollumABTest.C)
-        XCTAssert(isA || isB || isC)
     }
     
     func testGetSelectedVersionAlwayVersionA() {
