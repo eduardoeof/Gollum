@@ -68,7 +68,7 @@ Error message:
 ```
 fatal error: 'try!' expression unexpectedly raised an error: Gollum.GollumError.VersionSyntaxError("ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
 ```
-During an A/B test registration, the method `registerVersions` can throw `EmptyVersionArrayPassed`, `SelectedVersionNotFound` or `ProbabilitySumIncorrect` errors.
+During an A/B test registration, the method `registerVersions` can throws `EmptyVersionArrayPassed`, `SelectedVersionNotFound` or `ProbabilitySumIncorrect` errors.
 
 Also methods `getSelectedVersion` and `isVersionSelected` can throw `SelectedVersionNotFound` error.
 
