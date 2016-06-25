@@ -14,4 +14,4 @@ script:
   - xcodebuild clean build test -workspace Workspace/Gollum.xcworkspace -scheme Gollum -sdk iphonesimulator ONLY_ACTIVE_ARCH=YES -destination "platform=iOS Simulator,name=$DEVICE,OS=$IOS_VERSION" | xcpretty -c
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -J 'Gollum'
