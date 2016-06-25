@@ -13,4 +13,4 @@ script:
   - echo $SIMULATOR_ID
   - open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
   - set -o pipefail
-  - xcodebuild clean build test -project Examples/Gollum/Gollum.xcodeproj -scheme Gollum -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -destination "platform=iOS Simulator,name=$DEVICE,OS=$IOS_VERSION" | xcpretty -c
+  - xcodebuild clean build test -project Workspace/Gollum/Gollum.xcodeproj -scheme Gollum -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO -destination "platform=iOS Simulator,name=$DEVICE,OS=$IOS_VERSION" | xcpretty -c
