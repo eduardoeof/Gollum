@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import Gollum
+
 class GollumTests: XCTestCase {
     var gollum: Gollum!
     

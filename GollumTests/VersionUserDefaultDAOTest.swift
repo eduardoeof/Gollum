@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import Gollum
+
 class VersionUserDefaultDAOTest: XCTestCase {
     var dao: VersionUserDefaultDAO!
     
