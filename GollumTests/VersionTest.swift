@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import Gollum
+
 class VersionTest: XCTestCase {
     var version: Version!
     

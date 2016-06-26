@@ -9,6 +9,8 @@
 import Foundation
 import XCTest
 
+@testable import Gollum
+
 let gollumStorageName = "GollumSelectedTests"
 
 protocol GollumUserDefaultHelper {
