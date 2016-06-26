@@ -1,7 +1,9 @@
----
 engines:
-  fixme:
+  tailor:
     enabled: true
+
 ratings:
-  paths: []
+  paths:
+  - "Gollum/**.swift"
+
 exclude_paths: []
