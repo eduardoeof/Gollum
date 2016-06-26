@@ -1,7 +1,7 @@
 # Gollum
 **A Swift A/B testing framework for iOS**
 
-[![Build Status](https://travis-ci.org/eduardoeof/Gollum.svg?branch=master)](https://travis-ci.org/eduardoeof/Gollum)
+[![Build Status](https://travis-ci.org/eduardoeof/Gollum.svg?branch=master)](https://travis-ci.org/eduardoeof/Gollum) [![codecov.io](http://codecov.io/gh/eduardoeof/Gollum/coverage.svg?branch=master)](http://codecov.io/gh/eduardoeof/Gollum/coverage.svg?branch=master)
 
 
 A/B testing (also known as split testing) is a good practice to test new concepts. Gollum is a A/B testing framework easy to use and inspired on some best practices in Swift, like:
