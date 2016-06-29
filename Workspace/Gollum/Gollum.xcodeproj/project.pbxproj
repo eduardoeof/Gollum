@@ -16,10 +16,10 @@
 		3379E66D1D1F0611009F6D8A /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6641D1F0611009F6D8A /* Gollum.swift */; };
 		3379E66E1D1F0611009F6D8A /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6661D1F0611009F6D8A /* Version.swift */; };
 		3379E66F1D1F0611009F6D8A /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6681D1F0611009F6D8A /* Mirror+Properties.swift */; };
-		3379E6741D1F0701009F6D8A /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6701D1F0701009F6D8A /* GollumTests.swift */; };
-		3379E6751D1F0701009F6D8A /* GollumUserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6711D1F0701009F6D8A /* GollumUserDefaultHelper.swift */; };
-		3379E6761D1F0701009F6D8A /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6721D1F0701009F6D8A /* VersionTest.swift */; };
-		3379E6771D1F0701009F6D8A /* VersionUserDefaultDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3379E6731D1F0701009F6D8A /* VersionUserDefaultDAOTest.swift */; };
+		339486CA1D23ECF800D20C5B /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486C61D23ECF800D20C5B /* GollumTests.swift */; };
+		339486CB1D23ECF800D20C5B /* GollumUserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486C71D23ECF800D20C5B /* GollumUserDefaultHelper.swift */; };
+		339486CC1D23ECF800D20C5B /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486C81D23ECF800D20C5B /* VersionTest.swift */; };
+		339486CD1D23ECF800D20C5B /* VersionUserDefaultDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486C91D23ECF800D20C5B /* VersionUserDefaultDAOTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +45,10 @@
 		3379E6641D1F0611009F6D8A /* Gollum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gollum.swift; sourceTree = "<group>"; };
 		3379E6661D1F0611009F6D8A /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		3379E6681D1F0611009F6D8A /* Mirror+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mirror+Properties.swift"; sourceTree = "<group>"; };
-		3379E6701D1F0701009F6D8A /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumTests.swift; path = ../../../GollumTests/GollumTests.swift; sourceTree = "<group>"; };
-		3379E6711D1F0701009F6D8A /* GollumUserDefaultHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumUserDefaultHelper.swift; path = ../../../GollumTests/GollumUserDefaultHelper.swift; sourceTree = "<group>"; };
-		3379E6721D1F0701009F6D8A /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionTest.swift; path = ../../../GollumTests/VersionTest.swift; sourceTree = "<group>"; };
-		3379E6731D1F0701009F6D8A /* VersionUserDefaultDAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionUserDefaultDAOTest.swift; path = ../../../GollumTests/VersionUserDefaultDAOTest.swift; sourceTree = "<group>"; };
+		339486C61D23ECF800D20C5B /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumTests.swift; sourceTree = "<group>"; };
+		339486C71D23ECF800D20C5B /* GollumUserDefaultHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumUserDefaultHelper.swift; sourceTree = "<group>"; };
+		339486C81D23ECF800D20C5B /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionTest.swift; sourceTree = "<group>"; };
+		339486C91D23ECF800D20C5B /* VersionUserDefaultDAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionUserDefaultDAOTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 		3379E6511D1F05A5009F6D8A /* GollumTests */ = {
 			isa = PBXGroup;
 			children = (
-				3379E6701D1F0701009F6D8A /* GollumTests.swift */,
-				3379E6711D1F0701009F6D8A /* GollumUserDefaultHelper.swift */,
-				3379E6721D1F0701009F6D8A /* VersionTest.swift */,
-				3379E6731D1F0701009F6D8A /* VersionUserDefaultDAOTest.swift */,
+				339486C61D23ECF800D20C5B /* GollumTests.swift */,
+				339486C71D23ECF800D20C5B /* GollumUserDefaultHelper.swift */,
+				339486C81D23ECF800D20C5B /* VersionTest.swift */,
+				339486C91D23ECF800D20C5B /* VersionUserDefaultDAOTest.swift */,
 				3379E6541D1F05A5009F6D8A /* Info.plist */,
 			);
 			path = GollumTests;
@@ -279,10 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3379E6771D1F0701009F6D8A /* VersionUserDefaultDAOTest.swift in Sources */,
-				3379E6751D1F0701009F6D8A /* GollumUserDefaultHelper.swift in Sources */,
-				3379E6761D1F0701009F6D8A /* VersionTest.swift in Sources */,
-				3379E6741D1F0701009F6D8A /* GollumTests.swift in Sources */,
+				339486CD1D23ECF800D20C5B /* VersionUserDefaultDAOTest.swift in Sources */,
+				339486CB1D23ECF800D20C5B /* GollumUserDefaultHelper.swift in Sources */,
+				339486CC1D23ECF800D20C5B /* VersionTest.swift in Sources */,
+				339486CA1D23ECF800D20C5B /* GollumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
