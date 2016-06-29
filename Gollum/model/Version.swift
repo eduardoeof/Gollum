@@ -17,7 +17,7 @@ public struct Version {
 
 extension Version: Equatable {}
 
-public func ==(lhs: Version, rhs: Version) -> Bool {
+public func == (lhs: Version, rhs: Version) -> Bool {
     return lhs.name == rhs.name && lhs.probability == rhs.probability
 }
 
@@ -63,4 +63,5 @@ extension Version: StringLiteralConvertible {
     static private func extractFieldsFrom(value: String) -> [String] {
         return value.characters.split { $0 == ":" }.map(String.init)
     }
+    
 }

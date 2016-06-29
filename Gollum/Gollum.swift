@@ -17,7 +17,7 @@ public class Gollum {
     private var selectedVersions: [TestName: Version]
     
     // MARK: - Init
-    
+
     init(versionDAO: VersionDAOProtocol) {
         self.versionDAO = versionDAO
         self.selectedVersions = try! versionDAO.loadSelectedVersions()
@@ -58,7 +58,7 @@ public class Gollum {
         return version
     }
     
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) throws-> Bool {
+    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) throws -> Bool {
         let testName = extractTestName(version)
         
         guard let selectedVersion = selectedVersions[testName] else {

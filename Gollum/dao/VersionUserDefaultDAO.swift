@@ -77,4 +77,5 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
 
         return Version(name: name, probability: probability)
     }
+    
 }
