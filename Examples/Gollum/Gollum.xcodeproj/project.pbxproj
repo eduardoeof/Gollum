@@ -14,10 +14,6 @@
 		3359BB3B1D04DEDC00F25E21 /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB321D04DEDC00F25E21 /* Gollum.swift */; };
 		3359BB3C1D04DEDC00F25E21 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB341D04DEDC00F25E21 /* Version.swift */; };
 		3359BB3D1D04DEDC00F25E21 /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB361D04DEDC00F25E21 /* Mirror+Properties.swift */; };
-		3359BB431D04DEEF00F25E21 /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB3F1D04DEEF00F25E21 /* GollumTests.swift */; };
-		3359BB441D04DEEF00F25E21 /* GollumUserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB401D04DEEF00F25E21 /* GollumUserDefaultHelper.swift */; };
-		3359BB451D04DEEF00F25E21 /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB411D04DEEF00F25E21 /* VersionTest.swift */; };
-		3359BB461D04DEEF00F25E21 /* VersionUserDefaultDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB421D04DEEF00F25E21 /* VersionUserDefaultDAOTest.swift */; };
 		3359BB471D04DF0900F25E21 /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB321D04DEDC00F25E21 /* Gollum.swift */; };
 		3359BB481D04DF1100F25E21 /* VersionDAOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB2D1D04DEDC00F25E21 /* VersionDAOProtocol.swift */; };
 		3359BB491D04DF1100F25E21 /* VersionUserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359BB2E1D04DEDC00F25E21 /* VersionUserDefaultDAO.swift */; };
@@ -30,6 +26,10 @@
 		335A5B881CFA4C82002C528F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335A5B861CFA4C82002C528F /* Main.storyboard */; };
 		335A5B8A1CFA4C82002C528F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335A5B891CFA4C82002C528F /* Assets.xcassets */; };
 		335A5B8D1CFA4C82002C528F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335A5B8B1CFA4C82002C528F /* LaunchScreen.storyboard */; };
+		339486DA1D23ED8E00D20C5B /* GollumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486D61D23ED8E00D20C5B /* GollumTests.swift */; };
+		339486DB1D23ED8E00D20C5B /* GollumUserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486D71D23ED8E00D20C5B /* GollumUserDefaultHelper.swift */; };
+		339486DC1D23ED8E00D20C5B /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486D81D23ED8E00D20C5B /* VersionTest.swift */; };
+		339486DD1D23ED8E00D20C5B /* VersionUserDefaultDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339486D91D23ED8E00D20C5B /* VersionUserDefaultDAOTest.swift */; };
 		33E91F071CFE7B95007E443C /* MyAdorableABTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E91F061CFE7B95007E443C /* MyAdorableABTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +51,6 @@
 		3359BB321D04DEDC00F25E21 /* Gollum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gollum.swift; sourceTree = "<group>"; };
 		3359BB341D04DEDC00F25E21 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		3359BB361D04DEDC00F25E21 /* Mirror+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mirror+Properties.swift"; sourceTree = "<group>"; };
-		3359BB3F1D04DEEF00F25E21 /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumTests.swift; sourceTree = "<group>"; };
-		3359BB401D04DEEF00F25E21 /* GollumUserDefaultHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumUserDefaultHelper.swift; sourceTree = "<group>"; };
-		3359BB411D04DEEF00F25E21 /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionTest.swift; sourceTree = "<group>"; };
-		3359BB421D04DEEF00F25E21 /* VersionUserDefaultDAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionUserDefaultDAOTest.swift; sourceTree = "<group>"; };
 		335A5B7F1CFA4C82002C528F /* Gollum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gollum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335A5B821CFA4C82002C528F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		335A5B841CFA4C82002C528F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +60,10 @@
 		335A5B8E1CFA4C82002C528F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		335A5B931CFA4C82002C528F /* GollumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GollumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		335A5B991CFA4C82002C528F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		339486D61D23ED8E00D20C5B /* GollumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumTests.swift; path = ../Workspace/Gollum/GollumTests/GollumTests.swift; sourceTree = "<group>"; };
+		339486D71D23ED8E00D20C5B /* GollumUserDefaultHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GollumUserDefaultHelper.swift; path = ../Workspace/Gollum/GollumTests/GollumUserDefaultHelper.swift; sourceTree = "<group>"; };
+		339486D81D23ED8E00D20C5B /* VersionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionTest.swift; path = ../Workspace/Gollum/GollumTests/VersionTest.swift; sourceTree = "<group>"; };
+		339486D91D23ED8E00D20C5B /* VersionUserDefaultDAOTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VersionUserDefaultDAOTest.swift; path = ../Workspace/Gollum/GollumTests/VersionUserDefaultDAOTest.swift; sourceTree = "<group>"; };
 		33E91F061CFE7B95007E443C /* MyAdorableABTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdorableABTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,10 +135,10 @@
 		3359BB3E1D04DEEF00F25E21 /* GollumTests */ = {
 			isa = PBXGroup;
 			children = (
-				3359BB3F1D04DEEF00F25E21 /* GollumTests.swift */,
-				3359BB401D04DEEF00F25E21 /* GollumUserDefaultHelper.swift */,
-				3359BB411D04DEEF00F25E21 /* VersionTest.swift */,
-				3359BB421D04DEEF00F25E21 /* VersionUserDefaultDAOTest.swift */,
+				339486D61D23ED8E00D20C5B /* GollumTests.swift */,
+				339486D71D23ED8E00D20C5B /* GollumUserDefaultHelper.swift */,
+				339486D81D23ED8E00D20C5B /* VersionTest.swift */,
+				339486D91D23ED8E00D20C5B /* VersionUserDefaultDAOTest.swift */,
 			);
 			name = GollumTests;
 			path = ../../../GollumTests;
@@ -312,17 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3359BB461D04DEEF00F25E21 /* VersionUserDefaultDAOTest.swift in Sources */,
-				3359BB441D04DEEF00F25E21 /* GollumUserDefaultHelper.swift in Sources */,
 				3359BB4B1D04DF1600F25E21 /* VersionDAOError.swift in Sources */,
+				339486DB1D23ED8E00D20C5B /* GollumUserDefaultHelper.swift in Sources */,
 				3359BB491D04DF1100F25E21 /* VersionUserDefaultDAO.swift in Sources */,
 				3359BB471D04DF0900F25E21 /* Gollum.swift in Sources */,
+				339486DD1D23ED8E00D20C5B /* VersionUserDefaultDAOTest.swift in Sources */,
 				3359BB481D04DF1100F25E21 /* VersionDAOProtocol.swift in Sources */,
 				3359BB4D1D04DF1D00F25E21 /* Mirror+Properties.swift in Sources */,
+				339486DC1D23ED8E00D20C5B /* VersionTest.swift in Sources */,
 				3359BB4C1D04DF1D00F25E21 /* Version.swift in Sources */,
-				3359BB451D04DEEF00F25E21 /* VersionTest.swift in Sources */,
 				3359BB4A1D04DF1600F25E21 /* GollumError.swift in Sources */,
-				3359BB431D04DEEF00F25E21 /* GollumTests.swift in Sources */,
+				339486DA1D23ED8E00D20C5B /* GollumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
