@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33A586441D282F6200C69763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586431D282F6200C69763 /* AppDelegate.swift */; };
+		33A586461D282F6200C69763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586451D282F6200C69763 /* ViewController.swift */; };
+		33A5864B1D282F6200C69763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A5864A1D282F6200C69763 /* Assets.xcassets */; };
+		33A5864E1D282F6200C69763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A5864C1D282F6200C69763 /* LaunchScreen.storyboard */; };
+		33A586701D282FF600C69763 /* VersionDAOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586661D282FF600C69763 /* VersionDAOProtocol.swift */; };
+		33A586711D282FF600C69763 /* VersionUserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586671D282FF600C69763 /* VersionUserDefaultDAO.swift */; };
+		33A586721D282FF600C69763 /* GollumError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586691D282FF600C69763 /* GollumError.swift */; };
+		33A586731D282FF600C69763 /* VersionDAOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5866A1D282FF600C69763 /* VersionDAOError.swift */; };
+		33A586741D282FF600C69763 /* Gollum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5866B1D282FF600C69763 /* Gollum.swift */; };
+		33A586751D282FF600C69763 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5866D1D282FF600C69763 /* Version.swift */; };
+		33A586761D282FF600C69763 /* Mirror+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5866F1D282FF600C69763 /* Mirror+Properties.swift */; };
+		33A586781D28306200C69763 /* MyAdorableABTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A586771D28306200C69763 /* MyAdorableABTest.swift */; };
+		33A5867A1D2830F000C69763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A586791D2830F000C69763 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33A586401D282F6200C69763 /* GollumApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GollumApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A586431D282F6200C69763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33A586451D282F6200C69763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33A5864A1D282F6200C69763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33A5864D1D282F6200C69763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33A5864F1D282F6200C69763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33A586661D282FF600C69763 /* VersionDAOProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDAOProtocol.swift; sourceTree = "<group>"; };
+		33A586671D282FF600C69763 /* VersionUserDefaultDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionUserDefaultDAO.swift; sourceTree = "<group>"; };
+		33A586691D282FF600C69763 /* GollumError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GollumError.swift; sourceTree = "<group>"; };
+		33A5866A1D282FF600C69763 /* VersionDAOError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionDAOError.swift; sourceTree = "<group>"; };
+		33A5866B1D282FF600C69763 /* Gollum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gollum.swift; sourceTree = "<group>"; };
+		33A5866D1D282FF600C69763 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		33A5866F1D282FF600C69763 /* Mirror+Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mirror+Properties.swift"; sourceTree = "<group>"; };
+		33A586771D28306200C69763 /* MyAdorableABTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdorableABTest.swift; sourceTree = "<group>"; };
+		33A586791D2830F000C69763 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33A5863D1D282F6200C69763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33A586371D282F6200C69763 = {
+			isa = PBXGroup;
+			children = (
+				33A586421D282F6200C69763 /* GollumApp */,
+				33A586411D282F6200C69763 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33A586411D282F6200C69763 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33A586401D282F6200C69763 /* GollumApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33A586421D282F6200C69763 /* GollumApp */ = {
+			isa = PBXGroup;
+			children = (
+				33A586431D282F6200C69763 /* AppDelegate.swift */,
+				33A586451D282F6200C69763 /* ViewController.swift */,
+				33A586771D28306200C69763 /* MyAdorableABTest.swift */,
+				33A586641D282FF600C69763 /* Gollum */,
+				33A586631D282FBD00C69763 /* Support Files */,
+			);
+			path = GollumApp;
+			sourceTree = "<group>";
+		};
+		33A586631D282FBD00C69763 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				33A586791D2830F000C69763 /* Main.storyboard */,
+				33A5864A1D282F6200C69763 /* Assets.xcassets */,
+				33A5864C1D282F6200C69763 /* LaunchScreen.storyboard */,
+				33A5864F1D282F6200C69763 /* Info.plist */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		33A586641D282FF600C69763 /* Gollum */ = {
+			isa = PBXGroup;
+			children = (
+				33A586651D282FF600C69763 /* dao */,
+				33A586681D282FF600C69763 /* error */,
+				33A5866B1D282FF600C69763 /* Gollum.swift */,
+				33A5866C1D282FF600C69763 /* model */,
+				33A5866E1D282FF600C69763 /* util */,
+			);
+			name = Gollum;
+			path = ../../../Gollum;
+			sourceTree = "<group>";
+		};
+		33A586651D282FF600C69763 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				33A586661D282FF600C69763 /* VersionDAOProtocol.swift */,
+				33A586671D282FF600C69763 /* VersionUserDefaultDAO.swift */,
+			);
+			path = dao;
+			sourceTree = "<group>";
+		};
+		33A586681D282FF600C69763 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				33A586691D282FF600C69763 /* GollumError.swift */,
+				33A5866A1D282FF600C69763 /* VersionDAOError.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		33A5866C1D282FF600C69763 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				33A5866D1D282FF600C69763 /* Version.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		33A5866E1D282FF600C69763 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				33A5866F1D282FF600C69763 /* Mirror+Properties.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33A5863F1D282F6200C69763 /* GollumApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33A5865D1D282F6200C69763 /* Build configuration list for PBXNativeTarget "GollumApp" */;
+			buildPhases = (
+				33A5863C1D282F6200C69763 /* Sources */,
+				33A5863D1D282F6200C69763 /* Frameworks */,
+				33A5863E1D282F6200C69763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GollumApp;
+			productName = GollumApp;
+			productReference = 33A586401D282F6200C69763 /* GollumApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33A586381D282F6200C69763 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = eduardoeof;
+				TargetAttributes = {
+					33A5863F1D282F6200C69763 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 33A5863B1D282F6200C69763 /* Build configuration list for PBXProject "GollumApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33A586371D282F6200C69763;
+			productRefGroup = 33A586411D282F6200C69763 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33A5863F1D282F6200C69763 /* GollumApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33A5863E1D282F6200C69763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A5867A1D2830F000C69763 /* Main.storyboard in Resources */,
+				33A5864E1D282F6200C69763 /* LaunchScreen.storyboard in Resources */,
+				33A5864B1D282F6200C69763 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33A5863C1D282F6200C69763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33A586741D282FF600C69763 /* Gollum.swift in Sources */,
+				33A586761D282FF600C69763 /* Mirror+Properties.swift in Sources */,
+				33A586781D28306200C69763 /* MyAdorableABTest.swift in Sources */,
+				33A586711D282FF600C69763 /* VersionUserDefaultDAO.swift in Sources */,
+				33A586701D282FF600C69763 /* VersionDAOProtocol.swift in Sources */,
+				33A586731D282FF600C69763 /* VersionDAOError.swift in Sources */,
+				33A586461D282F6200C69763 /* ViewController.swift in Sources */,
+				33A586721D282FF600C69763 /* GollumError.swift in Sources */,
+				33A586751D282FF600C69763 /* Version.swift in Sources */,
+				33A586441D282F6200C69763 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33A5864C1D282F6200C69763 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33A5864D1D282F6200C69763 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33A5865B1D282F6200C69763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33A5865C1D282F6200C69763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33A5865E1D282F6200C69763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GollumApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eduardoeof.GollumApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33A5865F1D282F6200C69763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GollumApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eduardoeof.GollumApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33A5863B1D282F6200C69763 /* Build configuration list for PBXProject "GollumApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A5865B1D282F6200C69763 /* Debug */,
+				33A5865C1D282F6200C69763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33A5865D1D282F6200C69763 /* Build configuration list for PBXNativeTarget "GollumApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33A5865E1D282F6200C69763 /* Debug */,
+				33A5865F1D282F6200C69763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33A586381D282F6200C69763 /* Project object */;
+}

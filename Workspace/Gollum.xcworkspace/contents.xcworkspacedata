@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Gollum/Gollum.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:GollumApp/GollumApp.xcodeproj">
+   </FileRef>
 </Workspace>
