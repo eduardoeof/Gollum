@@ -28,14 +28,14 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
     
     // MARK: - VersionDAOProtocol
     
-    func saveSelectedVersion(version: Version, testName name: String) {
+    func saveSelectedVersion(_ version: Version, testName name: String) {
         let selectedVersion = convertToSelectedVersion(version)
         tests[name] = selectedVersion
         
         saveSelectedTests()
     }
     
-    func didSelectVersionForTest(name: String) -> Bool {
+    func didSelectVersionForTest(_ name: String) -> Bool {
         return tests[name] != nil
     }
     
@@ -53,26 +53,26 @@ class VersionUserDefaultDAO: VersionDAOProtocol {
     // MARK: - Private Static
     
     private static func loadSelectedTests() -> Tests? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(VersionUserDefaultDAO.storageName) as? Tests
+        return UserDefaults.standard.object(forKey: VersionUserDefaultDAO.storageName) as? Tests
     }
     
     // MARK: - Private
     
     private func saveSelectedTests() {
-        NSUserDefaults.standardUserDefaults().setObject(tests, forKey: VersionUserDefaultDAO.storageName)
+        UserDefaults.standard.set(tests, forKey: VersionUserDefaultDAO.storageName)
     }
     
-    private func convertToSelectedVersion(version: Version) -> SelectedVersion {
+    private func convertToSelectedVersion(_ version: Version) -> SelectedVersion {
         return [version.name: version.probability]
     }
     
-    private func convertToVersion(selectedVersion: SelectedVersion) throws -> Version {
+    private func convertToVersion(_ selectedVersion: SelectedVersion) throws -> Version {
         guard let name = selectedVersion.keys.first else {
-            throw VersionDAOError.VersionNameValueNotFound("Selected version's name is missing")
+            throw VersionDAOError.versionNameValueNotFound("Selected version's name is missing")
         }
         
         guard let probability = selectedVersion[name] else {
-            throw VersionDAOError.VersionProbabilityValueNotFound("Selected version's probability is missing")
+            throw VersionDAOError.versionProbabilityValueNotFound("Selected version's probability is missing")
         }
 
         return Version(name: name, probability: probability)
