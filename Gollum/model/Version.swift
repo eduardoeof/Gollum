@@ -23,7 +23,7 @@ public func == (lhs: Version, rhs: Version) -> Bool {
 
 // MARK: - Extension StringLiteralConvertible
 
-extension Version: StringLiteralConvertible {
+extension Version: ExpressibleByStringLiteral {
     public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
     public typealias UnicodeScalarLiteralType = StringLiteralType
     
@@ -45,13 +45,13 @@ extension Version: StringLiteralConvertible {
         let fields = Version.extractFieldsFrom(value)
         
         if fields.count != 2 {
-            throw GollumError.VersionSyntaxError("ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
+            throw GollumError.versionSyntaxError("ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
         }
         
         let name = fields[0]
         
         guard let probability = Float(fields[1]) else {
-            throw GollumError.VersionSyntaxError("ABTest must have a probablity (e.g. 0.5)")
+            throw GollumError.versionSyntaxError("ABTest must have a probablity (e.g. 0.5)")
         }
         
         self.name = name
@@ -60,7 +60,7 @@ extension Version: StringLiteralConvertible {
     
     // MARK: - Static private
     
-    static private func extractFieldsFrom(value: String) -> [String] {
+    static private func extractFieldsFrom(_ value: String) -> [String] {
         return value.characters.split { $0 == ":" }.map(String.init)
     }
     
