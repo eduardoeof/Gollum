@@ -34,7 +34,7 @@ public class Gollum {
             throw GollumError.emptyVersionArrayPassed("A empty version array was passed to registered.")
         }
         
-        let testName = extractTestName(firstVersion)
+        let testName = extractTestName(from: firstVersion)
 
         if selectedVersions[testName] == nil {
             try raffleVersion(versions, testName: testName)
@@ -47,11 +47,11 @@ public class Gollum {
         }
     }
     
-    public func getSelectedVersion<T: RawRepresentable>(_ test: T.Type) throws -> T where T.RawValue == Version {
-        let testName = String(describing: test)
+    public func getSelectedVersion<T: RawRepresentable>(_ testType: T.Type) throws -> T where T.RawValue == Version {
+        let testName = extractTestName(from: testType)
         
         guard let rawValue = selectedVersions[testName],
-            let version = test.init(rawValue: rawValue) else {
+            let version = testType.init(rawValue: rawValue) else {
                 throw GollumError.selectedVersionNotFound("Test \(testName) should have a selected version.")
         }
         
@@ -59,7 +59,7 @@ public class Gollum {
     }
     
     public func isVersionSelected<T: RawRepresentable>(_ version: T) throws -> Bool where T.RawValue == Version {
-        let testName = extractTestName(version)
+        let testName = extractTestName(from: version)
         
         guard let selectedVersion = selectedVersions[testName] else {
             throw GollumError.selectedVersionNotFound("Test \(testName) should have a selected version.")
@@ -70,8 +70,13 @@ public class Gollum {
     
     // MARK: - Private
     
-    private func extractTestName<T: RawRepresentable>(_ versionType: T) -> String where T.RawValue == Version {
+    private func extractTestName<T: RawRepresentable>(from versionType: T) -> String where T.RawValue == Version {
         let mirror = Mirror(reflecting: versionType)
+        return mirror.subjectName
+    }
+
+    private func extractTestName<T: RawRepresentable>(from testType: T.Type) -> String {
+        let mirror = Mirror(reflecting: testType)
         return mirror.subjectName
     }
     
