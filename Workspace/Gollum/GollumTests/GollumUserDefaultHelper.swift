@@ -20,10 +20,10 @@ protocol GollumUserDefaultHelper {
 
 extension GollumUserDefaultHelper where Self: XCTestCase {
     func loadSelectedTests() -> SelectedTests? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(gollumStorageName) as? SelectedTests
+        return UserDefaults.standard.object(forKey: gollumStorageName) as? SelectedTests
     }
     
     func removeSelectedTestsFromStorage() {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(gollumStorageName)
+        UserDefaults.standard.removeObject(forKey: gollumStorageName)
     }
 }
