@@ -83,7 +83,7 @@ public class Gollum {
     private func raffleVersion<T: RawRepresentable>(_ versions: [T], testName: String) throws where T.RawValue == Version {
         let versionsRawValue = convertToArrayOfRawValue(versions)
         
-        guard isTestProbabilitySumValid(versionsRawValue) else {
+        guard isVersionsProbabilitySumValid(versionsRawValue) else {
             throw GollumError.probabilitySumIncorrect("Sum of \(testName)'s probability isn't 1.0")
         }
 
@@ -99,7 +99,7 @@ public class Gollum {
         }
     }
     
-    private func isTestProbabilitySumValid(_ versions: [Version]) -> Bool {
+    private func isVersionsProbabilitySumValid(_ versions: [Version]) -> Bool {
         return versions.reduce(0) { $0 + $1.probability } == 1.0
     }
     
