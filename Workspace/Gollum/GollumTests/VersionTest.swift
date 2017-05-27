@@ -56,7 +56,7 @@ class VersionTest: XCTestCase {
     func testInitWithoutProbabilityValue() {
         do {
             version = try Version(value: "A")
-        } catch GollumError.VersionSyntaxError(let message) {
+        } catch GollumError.versionSyntaxError(let message) {
             XCTAssertEqual(message, "ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
         } catch {
             XCTFail()
@@ -66,7 +66,7 @@ class VersionTest: XCTestCase {
     func testInitWithoutNameValue() {
         do {
             version = try Version(value: "0.5")
-        } catch GollumError.VersionSyntaxError(let message) {
+        } catch GollumError.versionSyntaxError(let message) {
             XCTAssertEqual(message, "ABTest case expression must have name and probability values splitted by : (e.g. \"MyTestCaseA:0.5\")")
         } catch {
             XCTFail()
@@ -76,7 +76,7 @@ class VersionTest: XCTestCase {
     func testInitWithProbabilityNotFloatValue() {
         do {
             version = try Version(value: "A:A")
-        } catch GollumError.VersionSyntaxError(let message) {
+        } catch GollumError.versionSyntaxError(let message) {
             XCTAssertEqual(message, "ABTest must have a probablity (e.g. 0.5)")
         } catch {
             XCTFail()

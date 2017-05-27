@@ -9,7 +9,7 @@
 import Foundation
 
 protocol VersionDAOProtocol {
-    func saveSelectedVersion(version: Version, testName name: String)
-    func didSelectVersionForTest(name: String) -> Bool
+    func saveSelectedVersion(_ version: Version, testName name: String)
+    func didSelectVersionForTest(_ name: String) -> Bool
     func loadSelectedVersions() throws -> [String: Version]
 }

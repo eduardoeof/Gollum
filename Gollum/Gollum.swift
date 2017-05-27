@@ -29,40 +29,40 @@ public class Gollum {
     
     // MARK: - Public
     
-    public func registerVersions<T: RawRepresentable where T.RawValue == Version>(versions: [T]) throws {
+    public func registerVersions<T: RawRepresentable>(_ versions: [T]) throws where T.RawValue == Version {
         guard let firstVersion = versions.first else {
-            throw GollumError.EmptyVersionArrayPassed("A empty version array was passed to registered.")
+            throw GollumError.emptyVersionArrayPassed("A empty version array was passed to registered.")
         }
         
-        let testName = extractTestName(firstVersion)
+        let testName = extractTestName(from: firstVersion)
 
         if selectedVersions[testName] == nil {
             try raffleVersion(versions, testName: testName)
             
             guard let selectedVersions = selectedVersions[testName] else {
-                throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+                throw GollumError.selectedVersionNotFound("Test \(testName) should have a selected version.")
             }
             
             versionDAO.saveSelectedVersion(selectedVersions, testName: testName)
         }
     }
     
-    public func getSelectedVersion<T: RawRepresentable where T.RawValue == Version>(test: T.Type) throws -> T {
-        let testName = String(test)
+    public func getSelectedVersion<T: RawRepresentable>(_ testType: T.Type) throws -> T where T.RawValue == Version {
+        let testName = extractTestName(from: testType)
         
         guard let rawValue = selectedVersions[testName],
-            let version = test.init(rawValue: rawValue) else {
-                throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+            let version = testType.init(rawValue: rawValue) else {
+                throw GollumError.selectedVersionNotFound("Test \(testName) should have a selected version.")
         }
         
         return version
     }
     
-    public func isVersionSelected<T: RawRepresentable where T.RawValue == Version>(version: T) throws -> Bool {
-        let testName = extractTestName(version)
+    public func isVersionSelected<T: RawRepresentable>(_ version: T) throws -> Bool where T.RawValue == Version {
+        let testName = extractTestName(from: version)
         
         guard let selectedVersion = selectedVersions[testName] else {
-            throw GollumError.SelectedVersionNotFound("Test \(testName) should have a selected version.")
+            throw GollumError.selectedVersionNotFound("Test \(testName) should have a selected version.")
         }
         
         return selectedVersion == version.rawValue
@@ -70,21 +70,26 @@ public class Gollum {
     
     // MARK: - Private
     
-    private func extractTestName<T: RawRepresentable where T.RawValue == Version>(versionType: T) -> String {
+    private func extractTestName<T: RawRepresentable>(from versionType: T) -> String where T.RawValue == Version {
         let mirror = Mirror(reflecting: versionType)
         return mirror.subjectName
     }
+
+    private func extractTestName<T: RawRepresentable>(from testType: T.Type) -> String {
+        let mirror = Mirror(reflecting: testType)
+        return mirror.subjectName
+    }
     
-    private func raffleVersion<T: RawRepresentable where T.RawValue == Version>(versions: [T], testName: String) throws {
+    private func raffleVersion<T: RawRepresentable>(_ versions: [T], testName: String) throws where T.RawValue == Version {
         let versionsRawValue = convertToArrayOfRawValue(versions)
         
-        guard isTestProbabilitySumValid(versionsRawValue) else {
-            throw GollumError.ProbabilitySumIncorrect("Sum of \(testName)'s probability isn't 1.0")
+        guard isVersionsProbabilitySumValid(versionsRawValue) else {
+            throw GollumError.probabilitySumIncorrect("Sum of \(testName)'s probability isn't 1.0")
         }
 
         var selectedNumber = generateAleatoryNumber()
         let probabilities = versionsRawValue.map { Int($0.probability * 1000) }
-        for (index, probability) in probabilities.enumerate() {
+        for (index, probability) in probabilities.enumerated() {
             if selectedNumber <= probability {
                 selectedVersions[testName] = versionsRawValue[index]
                 return
@@ -94,7 +99,7 @@ public class Gollum {
         }
     }
     
-    private func isTestProbabilitySumValid(versions: [Version]) -> Bool {
+    private func isVersionsProbabilitySumValid(_ versions: [Version]) -> Bool {
         return versions.reduce(0) { $0 + $1.probability } == 1.0
     }
     
@@ -102,7 +107,7 @@ public class Gollum {
         return Int(arc4random_uniform(1000) + 1)
     }
     
-    private func convertToArrayOfRawValue<T: RawRepresentable where T.RawValue == Version>(versions: [T]) -> [T.RawValue] {
+    private func convertToArrayOfRawValue<T: RawRepresentable>(_ versions: [T]) -> [T.RawValue] where T.RawValue == Version {
         var rawValues: [T.RawValue] = []
         for version in versions {
             rawValues.append(version.rawValue)

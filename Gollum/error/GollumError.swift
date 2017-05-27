@@ -8,9 +8,9 @@
 
 import Foundation
 
-public enum GollumError: ErrorType {
-    case VersionSyntaxError(String)
-    case ProbabilitySumIncorrect(String)
-    case EmptyVersionArrayPassed(String)
-    case SelectedVersionNotFound(String)
+public enum GollumError: Error {
+    case versionSyntaxError(String)
+    case probabilitySumIncorrect(String)
+    case emptyVersionArrayPassed(String)
+    case selectedVersionNotFound(String)
 }
