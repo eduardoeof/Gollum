@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MyAdorableABTest: Version {
-    case A = "A:0.5"
-    case B = "B:0.5"
+enum MyABTest: Version {
+    case a = "A:0.5"
+    case b = "B:0.5"
 }

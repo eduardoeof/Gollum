@@ -12,9 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        try! Gollum.instance.registerVersions([MyAdorableABTest.A, MyAdorableABTest.B])
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        try! Gollum.instance.registerVersions([MyABTest.b, MyABTest.b])
         
         return true
     }

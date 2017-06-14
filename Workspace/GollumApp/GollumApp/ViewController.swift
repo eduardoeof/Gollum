@@ -16,11 +16,11 @@ class ViewController: UIViewController {
         // Check seleted version
         
         do {
-            switch try Gollum.instance.getSelectedVersion(MyAdorableABTest) {
-            case .A:
-                view.backgroundColor = UIColor.redColor()
-            case .B:
-                view.backgroundColor = UIColor.greenColor()
+            switch try Gollum.instance.getSelectedVersion(MyABTest.self) {
+            case .a:
+                view.backgroundColor = UIColor.red
+            case .b:
+                view.backgroundColor = UIColor.green
             }
         } catch let error {
             print(error)
@@ -29,10 +29,10 @@ class ViewController: UIViewController {
         // Or
            
         do {
-            if try Gollum.instance.isVersionSelected(MyAdorableABTest.A) {
-                view.backgroundColor = UIColor.redColor()
-            } else if try Gollum.instance.isVersionSelected(MyAdorableABTest.B) {
-                view.backgroundColor = UIColor.greenColor()
+            if try Gollum.instance.isVersionSelected(MyABTest.a) {
+                view.backgroundColor = UIColor.red
+            } else if try Gollum.instance.isVersionSelected(MyABTest.b) {
+                view.backgroundColor = UIColor.green
             }
         } catch let error {
             print(error)
