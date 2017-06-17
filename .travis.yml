@@ -4,7 +4,7 @@ osx_image: xcode8.3
 
 before_install:
   - DEVICE='iPhone 7'
-  - IOS_VERSION='10.3'
+  - IOS_VERSION='10.3.1'
   - SIMULATOR_ID=$(xcrun instruments -s | grep -o "$DEVICE ($IOS_VERSION) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
 
 script:
@@ -15,3 +15,4 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J "^Gollum$"
+
