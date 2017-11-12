@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'Gollum'
-  s.version               = '0.3.1'
+  s.version               = '0.4.0'
   s.summary               = 'A Swift A/B Testing framework for iOS'
   s.homepage              = 'https://github.com/eduardoeof/Gollum'
   s.license               = { :type => 'MIT', :file => 'LICENSE' }

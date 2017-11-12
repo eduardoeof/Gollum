@@ -61,7 +61,7 @@ extension Version: ExpressibleByStringLiteral {
     // MARK: - Static private
     
     static private func extractFieldsFrom(_ value: String) -> [String] {
-        return value.characters.split { $0 == ":" }.map(String.init)
+        return value.split { $0 == ":" }.map(String.init)
     }
     
 }
